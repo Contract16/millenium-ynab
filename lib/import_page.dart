@@ -72,12 +72,8 @@ class _ImportPageState extends State<ImportPage> {
       final lines = await file.readAsLines();
 
       // Sanitised file
-      final List<String> sanitisedLines = [];
-      for (var line in lines) {
-        if (line.trim().isNotEmpty) {
-          sanitisedLines.add(line);
-        }
-      }
+      final List<String> sanitisedLines =
+          lines.where((line) => line.trim().isNotEmpty).toList();
       sanitisedLines.removeLast();
 
       sanitisedLines.removeRange(0,
