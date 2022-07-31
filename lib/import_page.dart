@@ -81,6 +81,7 @@ class _ImportPageState extends State<ImportPage> {
 
       // Modify Lines
       var buffer = StringBuffer();
+      buffer.writeln('Date;Payee;Memo;Amount'); // Column headers
       for (var line in sanitisedLines) {
         var cols = line.split(';');
         buffer.writeln([cols[0], cols[2], '', cols[3]].join(';'));
